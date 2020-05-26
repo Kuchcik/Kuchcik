@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Timer2">
+    <TextView
+        android:id="@+id/timer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="00:00"
+        android:textSize="50sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/timer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start"
+        android:layout_below="@+id/timer_text"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/timer_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reset"
+        android:layout_toRightOf="@+id/timer_button"
+        android:layout_below="@+id/timer_text"
+        android:visibility="invisible"
+        tools:visibility="visible"/>
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:hint="Minutes"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/timer_text"
+        android:inputType="number"
+        android:maxLength="4"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setTimeButton"
+        android:layout_toRightOf="@+id/editTextTime"
+        android:layout_above="@+id/timer_text"
+        android:text="Set"/>
+
+
+</RelativeLayout>

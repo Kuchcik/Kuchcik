@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:id="@+id/layout">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="2dp"
+            android:src="@drawable/ic_shop"
+            android:id="@+id/imageShopping"/>
+
+        <TextView
+            android:id="@+id/shoppingName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageShopping"
+            />
+        <TextView
+            android:id="@+id/shoppingQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_below="@+id/shoppingName"
+            android:layout_toEndOf="@+id/imageShopping"/>
+
+        <ImageView
+            android:id="@+id/removeProduct"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:tint="@color/quantum_googred400"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_remove_shop"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

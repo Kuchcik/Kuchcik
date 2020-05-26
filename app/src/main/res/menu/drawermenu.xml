@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/categoryAndName" android:title="Categories &amp; Name" android:icon="@drawable/ic_search"/>
+    <item android:id="@+id/countryAndIngredient" android:title="Countries &amp; Ingredients " android:icon="@drawable/ic_search"/>
+    <item android:id="@+id/map" android:title="Map of Grocery Stories" android:icon="@drawable/ic_map"/>
+    <item android:id="@+id/randomRecipe" android:title="Random Recipe" android:icon="@drawable/ic_shake_phone"/>
+    <item android:id="@+id/favouriteRecipe" android:title="My Favourite Recipes" android:icon="@drawable/ic_favorite_recipe"/>
+    <item android:id="@+id/shoppingList" android:title="My Shopping List" android:icon="@drawable/ic_shopping_list"/>
+    <item android:id="@+id/timer" android:title="Timer" android:icon="@drawable/ic_timer"/>
+
+
+
+</menu>
