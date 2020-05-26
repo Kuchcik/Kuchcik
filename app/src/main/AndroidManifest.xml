@@ -17,10 +17,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".View.ShoppingActivity"></activity>
         <activity android:name=".View.Timer2" />
-        <activity
-            android:name=".View.Timer"
-            android:label="@string/title_activity_timer"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"
