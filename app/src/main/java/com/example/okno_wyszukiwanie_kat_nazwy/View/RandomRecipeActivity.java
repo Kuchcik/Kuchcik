@@ -67,6 +67,7 @@ public class RandomRecipeActivity extends AppCompatActivity {
             {
                 Intent intent = new Intent(RandomRecipeActivity.this, RecipeDetailsActivity.class);
                 intent.putExtra("recipeKey", SD.getRandomRecipe());
+                mSensorManager.unregisterListener(mSensorListener);
                 RandomRecipeActivity.this.startActivity(intent);
             }
         }

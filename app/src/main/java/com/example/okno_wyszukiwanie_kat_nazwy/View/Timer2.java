@@ -3,12 +3,17 @@ package com.example.okno_wyszukiwanie_kat_nazwy.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.media.MediaScannerConnection;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethod;
 import android.view.inputmethod.InputMethodManager;
@@ -19,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.okno_wyszukiwanie_kat_nazwy.R;
 
+import java.io.File;
 import java.util.Locale;
 
 public class Timer2 extends AppCompatActivity {
@@ -32,6 +38,7 @@ public class Timer2 extends AppCompatActivity {
     private long timeLeftInMiliseconds;
     private long EndTime;
     private boolean timerRunning;
+    MediaPlayer mediaPlayer;
 
 
     @Override
@@ -43,6 +50,8 @@ public class Timer2 extends AppCompatActivity {
         TimerReset = findViewById(R.id.timer_reset);
         EditTextInput = findViewById(R.id.editTextTime);
         TimerSet = findViewById(R.id.setTimeButton);
+        mediaPlayer = MediaPlayer.create(this, R.raw.audio);
+        mediaPlayer.setVolume(70,100);
 
         TimerSet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,12 +87,6 @@ public class Timer2 extends AppCompatActivity {
                 resetTimer();
             }
         });
-        /*Timertext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Timer2.this,Pop.class));
-            }
-        });*/
         updateCountDownText();
     }
     private void setTime(long milliseconds){
@@ -103,11 +106,13 @@ public class Timer2 extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                mediaPlayer.start();
+
+                //Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                //final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
                 timerRunning = false;
                 updateWatchInterface();
-                r.play();
+                //r.play();
             }
         }.start();
         timerRunning = true;
@@ -124,6 +129,7 @@ public class Timer2 extends AppCompatActivity {
         timeLeftInMiliseconds = StartTimeInMillis;
         updateCountDownText();
         updateWatchInterface();
+        mediaPlayer.stop();
     }
 
     private void updateCountDownText(){

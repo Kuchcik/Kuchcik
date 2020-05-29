@@ -19,6 +19,7 @@
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="190dp"
+            android:scaleType="fitXY"
 
             android:src="@drawable/kuchcik_header_good"
             android:contentDescription="TODO"
