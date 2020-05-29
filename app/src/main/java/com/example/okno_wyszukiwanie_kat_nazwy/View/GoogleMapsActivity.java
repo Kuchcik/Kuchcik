@@ -92,6 +92,27 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                Object dataTransfer[] = new Object[3];
+                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+
+                    mMap.clear();
+
+                    Circle circle = mMap.addCircle(new CircleOptions()
+                            .center(new LatLng(latitude, longitude))
+                            .radius(current*1000)
+                            .strokeColor(Color.YELLOW)
+                            .fillColor(Color.argb(30,0,20,60)));
+
+                    String shops = "grocery_or_supermarket";
+                    String shops2 = "meal_delivery";
+                    String url = getUrl(latitude, longitude, shops);
+                    String url2 = getUrl(latitude, longitude, shops2);
+                    dataTransfer[0] = mMap;
+                    dataTransfer[1] = url;
+                    dataTransfer[2] = url2;
+
+                    getNearbyPlacesData.execute(dataTransfer);
+                    Toast.makeText(GoogleMapsActivity.this, "Showing nearby grocery stories ", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -227,33 +248,7 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
 
     public void onClick(View v)
     {
-        Object dataTransfer[] = new Object[3];
-        GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
 
-
-        if(v.getId() == R.id.B_shops)
-        {
-
-            mMap.clear();
-
-            Circle circle = mMap.addCircle(new CircleOptions()
-                    .center(new LatLng(latitude, longitude))
-                    .radius(current*1000)
-                    .strokeColor(Color.YELLOW)
-                    .fillColor(Color.argb(30,0,20,60)));
-
-            String shops = "grocery_or_supermarket";
-            String shops2 = "meal_delivery";
-            String url = getUrl(latitude, longitude, shops);
-            String url2 = getUrl(latitude, longitude, shops2);
-            dataTransfer[0] = mMap;
-            dataTransfer[1] = url;
-            dataTransfer[2] = url2;
-
-            getNearbyPlacesData.execute(dataTransfer);
-            Toast.makeText(GoogleMapsActivity.this, "Showing nearby grocery stories ", Toast.LENGTH_SHORT).show();
-
-        }
 
     }
 

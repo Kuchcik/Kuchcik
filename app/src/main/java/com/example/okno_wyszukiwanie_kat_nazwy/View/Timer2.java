@@ -51,7 +51,6 @@ public class Timer2 extends AppCompatActivity {
         EditTextInput = findViewById(R.id.editTextTime);
         TimerSet = findViewById(R.id.setTimeButton);
         mediaPlayer = MediaPlayer.create(this, R.raw.audio);
-        mediaPlayer.setVolume(70,100);
 
         TimerSet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +110,7 @@ public class Timer2 extends AppCompatActivity {
                 //Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                 //final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
                 timerRunning = false;
+
                 updateWatchInterface();
                 //r.play();
             }
@@ -187,7 +187,6 @@ public class Timer2 extends AppCompatActivity {
         timerRunning = savedInstanceState.getBoolean("timerRunning");
         updateCountDownText();
         updateWatchInterface();
-
         if(timerRunning){
             EndTime=savedInstanceState.getLong("endTime");
             timeLeftInMiliseconds = EndTime - System.currentTimeMillis();
@@ -219,6 +218,7 @@ public class Timer2 extends AppCompatActivity {
 
         if(Timer != null) {
             Timer.cancel();
+
         }
     }
 
