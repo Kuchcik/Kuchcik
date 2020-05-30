@@ -129,7 +129,15 @@ public class StaticMethods {
     public static void displayArrayListInTextView(String separator, ArrayList<String> source, TextView textView) {
         StringBuilder stringBuilder = new StringBuilder();
         for(String s : source) {
-            stringBuilder.append(separator + s + "\n");
+            if(s == "")
+            {
+                stringBuilder.append(s + "\n");
+            }
+            else
+            {
+                stringBuilder.append(separator + s + "\n");
+            }
+
         }
         textView.setText(stringBuilder.toString());
     }

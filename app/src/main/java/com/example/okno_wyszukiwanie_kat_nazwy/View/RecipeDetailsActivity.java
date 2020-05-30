@@ -225,7 +225,66 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         mCategoryTextView.setText(recipe.getCategoryName());
         mAreaTextView.setText(recipe.getAreaName());
         mInstructionsTextView.setText(recipe.getInstrutions());
-        StaticMethods.displayArrayListInTextView("•",recipe.getIngredients(), mIngredientsTextView);
+        ArrayList<Integer> measuresIntList = new ArrayList<>();
+        ArrayList<String> ingredientsString = recipe.getIngredients();
+        if(StaticMethods.getScreenWidth() <= 480 || StaticMethods.getScreenHeight() <= 800)
+        {
+            int count = 1;
+            for(int i = 0; i < recipe.getMeasures().size(); i++)
+            {
+                if(recipe.getMeasures().get(i).length() > 23 && recipe.getMeasures().get(i).length() < 46)
+                {
+                    measuresIntList.add(i + count);
+                    ++count;
+                }
+
+                if(recipe.getMeasures().get(i).length() > 46)
+                {
+                    measuresIntList.add(i + count);
+                    ++count;
+                    measuresIntList.add(i + count);
+                    ++count;
+                }
+            }
+
+            if(measuresIntList.size()>0)
+            {
+                for(int i = 0; i < measuresIntList.size(); i++)
+                {
+                    ingredientsString.add(measuresIntList.get(i), "");
+                }
+            }
+
+        }
+        else {
+            int count = 1;
+            for(int i = 0; i < recipe.getMeasures().size(); i++)
+            {
+                if(recipe.getMeasures().get(i).length() > 29 && recipe.getMeasures().get(i).length() < 49)
+                {
+                    measuresIntList.add(i + count);
+                    ++count;
+                }
+
+                if(recipe.getMeasures().get(i).length() > 49)
+                {
+                    measuresIntList.add(i + count);
+                    ++count;
+                    measuresIntList.add(i + count);
+                    ++count;
+                }
+            }
+
+            if(measuresIntList.size()>0)
+            {
+                for(int i = 0; i < measuresIntList.size(); i++)
+                {
+                    ingredientsString.add(measuresIntList.get(i), "");
+                }
+            }
+
+        }
+        StaticMethods.displayArrayListInTextView("•",ingredientsString, mIngredientsTextView);
         StaticMethods.displayArrayListInTextView(":",recipe.getMeasures(), mMeasuresTextView);
     }
 }
