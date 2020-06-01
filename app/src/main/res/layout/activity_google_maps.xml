@@ -69,15 +69,7 @@
         >
 
     </TextView>
-    <Button
-        android:id="@+id/B_shops"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/map"
-        android:background="@color/quantum_white_100"
-        android:onClick="onClick"
 
-        android:text="Grocery Stories" />
 
 
 
